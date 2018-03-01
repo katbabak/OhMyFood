@@ -1,0 +1,51 @@
+<div id="register">
+  <form  action="mysuperscript.php" autocomplete="on">
+    <h3> Sign up </h3>
+
+    <p>
+      <label for="emailsignup" class="youmail"> Your email</label>
+      <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/>
+    </p>
+    <p>
+      <label for="passwordsignup" class="youpasswd">Your password </label>
+      <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+    </p>
+    <p>
+      <label for="passwordsignup_confirm" class="youpasswd">Please confirm your password </label>
+      <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+    </p>
+    <p>
+      <label for="usernamesignup" class="uname">And something about you</label>
+      <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="your name" />
+    </p>
+    <p>
+      <input id="userage" name="userage" required="required" type="text" placeholder="your age" />
+    </p>
+    <p>
+      <input id="userheight" name="userheight" required="required" type="text" placeholder="your height (cm)" />
+    </p>
+    <p>
+      <input id="userweight" name="userweight" required="required" type="text" placeholder="your weight (kg)" />
+    </p>
+    <p>
+      <select id="usergender" name="usergender" required="required">
+        <option value="man">I'm a guy</option>
+        <option value="woman">I'm a girl</option>
+      </select>
+      <select id="useractivity" name="useractivity" required="required">
+        <option value="Low">Low activity</option>
+        <option value="Medium">Medium activity</option>
+        <option value="Hight">Hight activity</option>
+      </select>
+    </p>
+
+    <p class="signin button">
+      <input type="submit" value="Sign up"/>
+    </p>
+    <p class="change_link">
+      Already a member ?
+      <a href="#tologin" class="to_register" routerLink = '/'> Go and log in </a>
+    </p>
+  </form>
+
+</div>
