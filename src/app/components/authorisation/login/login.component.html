@@ -1,0 +1,23 @@
+<div id="login">
+  <form>
+    <h3>Log in</h3>
+    <p>
+      <label for="username" data-icon="e" class="uname" >Your email </label>
+      <input id="username" name="username" required type="text" placeholder="mymail@mail.com"
+             [(ngModel)] = "user.email"/>
+    </p>
+    <p>
+      <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+      <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO"
+             [(ngModel)] = "user.password"/>
+    </p>
+    <span class="error" *ngIf = 'error'>{{ message }}</span>
+    <p class="login button">
+      <input type="submit" value="Login" (click)="login()" />
+    </p>
+    <p class="change_link">
+      Not a member yet ?
+      <a class="to_register" href = '/sign-up' routerLink="/sign-up">Join us</a>
+    </p>
+  </form>
+</div>

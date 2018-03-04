@@ -1,0 +1,248 @@
+@mixin border-radius($radius) {
+  -webkit-box-shadow: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($x, $y, $blur, $color, $a:"0") {
+  -webkit-box-shadow: $x $y $blur $a $color;
+  -moz-box-shadow: $x $y $blur $a $color;
+  box-shadow: $x $y $blur $a $color;
+}
+
+@mixin box-shadow-inset($x, $y, $blur, $rast, $color, $inset) {
+  -webkit-box-shadow: $x $y $blur $rast $color $inset;
+  -moz-box-shadow: $x $y $blur $rast $color $inset;
+  box-shadow: $x $y $blur $rast $color $inset;
+}
+
+@mixin transition ($which, $time, $type) {
+  -webkit-transition: $which $time $type;
+  -moz-transition: $which $time $type;
+  -o-transition: $which $time $type;
+  transition: $which $time $type;
+}
+
+@mixin box-sizing ($var) {
+  -webkit-box-sizing: $var;
+  -moz-box-sizing: $var;
+  box-sizing: $var;
+}
+@font-face {
+  font-family: 'FontomasCustomRegular';
+  src: url('../../../../assets/fonts/fontomas-webfont.eot');
+  src: url('../../../../assets/fonts/fontomas-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../../assets/fonts/fontomas-webfont.woff') format('woff'),
+  url('../../../../assets/fonts/fontomas-webfont.ttf') format('truetype'),
+  url('../../../../assets/fonts/fontomas-webfont.svg#FontomasCustomRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:after {
+  content: attr(data-icon);
+  font-family: 'FontomasCustomRegular';
+  color: rgb(193, 0, 8);
+  position: absolute;
+  left: 10px;
+  top: 43px;
+  width: 30px;
+  height: 5px;
+
+}
+
+#register,
+#login{
+  width: 460px;
+  padding: 18px 40px 30px 40px;
+  margin: 10px 0 75px 175px;
+  background: #f5e8c7;
+  border: 1px solid rgba(147, 184, 189,0.8);
+  @include border-radius(5px);
+  @include box-shadow(0px, 2px, 5px, rgba(105, 108, 109,  0.7));
+  @include box-shadow-inset(0px, 0px, 8px, 5px, rgba(208, 223, 226, 0.4), inset);
+  //position: absolute;
+
+}
+
+/**** general text styling ****/
+a{
+  color: rgb(95, 155, 198);
+  text-decoration: underline;
+}
+
+h3{
+  font-size: 48px;
+  color: #c10008;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 2px 0 20px 0;
+  font-family: 'Courgette', cursive;
+  font-weight: bold;
+  text-align: center;
+}
+/** For the moment only webkit supports the background-clip:text; */
+
+h3:after{
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 10px;
+  background: -moz-linear-gradient(left, rgba(193,0,8,0) 0%, rgba(193,0,8,0.8) 20%, rgba(193,0,8,1) 53%, rgba(193,0,8,0.8) 79%, rgba(193,0,8,0) 100%);
+  background: -o-linear-gradient(left, rgba(193,0,8,0) 0%,rgba(193,0,8,0.8) 20%,rgba(193,0,8,1) 53%,rgba(193,0,8,0.8) 79%,rgba(193,0,8,0) 100%);
+  background: linear-gradient(left, rgba(193,0,8,0) 0%,rgba(193,0,8,0.8) 20%,rgba(193,0,8,1) 53%,rgba(193,0,8,0.8) 79%,rgba(193,0,8,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(193,0,8,0)), color-stop(20%,#c10008), color-stop(53%,#c10008), color-stop(79%,#c10008), color-stop(100%,rgba(193,0,8,0)));
+}
+
+p{
+  margin-bottom:15px;
+  font-family: 'Lato', sans-serif;
+}
+
+p:first-child{
+  margin: 0;
+}
+
+label{
+  color: #409292;
+  position: relative;
+}
+
+/* all the input except submit and checkbox */
+input{
+  color: #409292;
+  width: 92%;
+  margin-top: 4px;
+  padding: 5px 5px 5px 30px;
+  border: 1px solid rgb(178, 178, 178);
+  -webkit-appearance: textfield;
+  @include box-sizing(content-box);
+  @include border-radius(3px);
+  @include box-shadow-inset(0px, 1px, 4px, 0px, rgba(208, 223, 226, 0.4), inset);
+  @include transition (all, 0.2s, linear);
+}
+select {
+  color: #409292;
+  margin-top: 10px;
+  padding: 5px 5px 5px 15px;
+  border: 1px solid rgb(178, 178, 178);
+  @include border-radius(3px);
+  @include box-shadow-inset(0px, 1px, 4px, 0px, rgba(208, 223, 226, 0.4), inset);
+  @include transition (all, 0.2s, linear);
+  &:first-child {
+    margin-right: 25px;
+  }
+}
+
+input:active,
+input:focus{
+  border: 1px solid rgba(64,146,146, 0.7);
+  background: rgba(238, 236, 240, 0.2);
+  @include box-shadow-inset(0px, 1px, 4px, 0px, rgba(64,146,146, 0.9), inset);
+}
+
+/*styling both submit buttons */
+p.button input{
+  width: 30%;
+  cursor: pointer;
+  background: #c10008;
+  padding: 8px 5px;
+  font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+  color: #fff;
+  font-size: 24px;
+  border: 1px solid rgb(28, 108, 122);
+  margin-bottom: 10px;
+  margin-right: 5px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  @include border-radius(3px);
+  @include box-shadow(0, 0, 0, rgb(254, 254, 254), 3px);
+  @include box-shadow(0, 5px, 3px, rgb(210, 210, 210), 3px);
+  @include box-shadow-inset(0, 1px, 6px, 4px, rgba(0,0,0,0.07), inset);
+  @include transition (all, 0.2s, linear);
+}
+p.button input:hover{
+  background: #409292;
+}
+
+p.button input:active,
+p.button input:focus{
+  background: #3B947E;
+  top: 1px;
+  border: 1px solid #409292;
+  @include box-shadow-inset(0px, 1px, 6px, 4px, rgba(0, 0, 0, 0.2), inset);
+}
+
+p.login.button,
+p.signup.button{
+  text-align: right;
+  margin: 5px 0;
+
+}
+
+/*styling the links to change from one form to another */
+p.button:after {
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 10px auto;
+  background: -moz-linear-gradient(left, rgba(193,0,8,0) 0%, rgba(193,0,8,0.8) 20%, rgba(193,0,8,1) 53%, rgba(193,0,8,0.8) 79%, rgba(193,0,8,0) 100%);
+  background: -o-linear-gradient(left, rgba(193,0,8,0) 0%,rgba(193,0,8,0.8) 20%,rgba(193,0,8,1) 53%,rgba(193,0,8,0.8) 79%,rgba(193,0,8,0) 100%);
+  background: linear-gradient(left, rgba(193,0,8,0) 0%,rgba(193,0,8,0.8) 20%,rgba(193,0,8,1) 53%,rgba(193,0,8,0.8) 79%,rgba(193,0,8,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(193,0,8,0)), color-stop(20%,#c10008), color-stop(53%,#c10008), color-stop(79%,#c10008), color-stop(100%,rgba(193,0,8,0)));
+}
+
+p.change_link{
+  color: #409292;
+  left: 0;
+  bottom: 10px;
+  height: 20px;
+  width: 400px;
+  padding: 17px 30px 20px 30px;
+  font-size: 16px	;
+  text-align: right;
+}
+
+p.change_link a {
+  display: inline-block;
+  font-weight: bold;
+  background: rgb(247, 248, 241);
+  padding: 2px 6px;
+  color: #c10008;
+  margin-left: 10px;
+  text-decoration: none;
+  @include border-radius(4px);
+  border: 1px solid rgb(203, 213, 214);
+  @include transition (all, 0.4s, linear);
+
+}
+p.change_link a:hover {
+  color: rgb(64,146,146);
+  background: rgb(247, 247, 247);
+  border: 1px solid rgb(74, 179, 198);
+}
+p.change_link a:active{
+  position: relative;
+  top: 1px;
+}
+// style of error span
+.error {
+  width: 92%;
+  color: #921913;
+  margin-top: 4px;
+  padding: 5px 5px 5px 15px;
+  border: 1px solid rgb(178, 27, 25);
+  background-color: rgba(226,143,130,0.4);
+  -webkit-appearance: textfield;
+  @include transition (all, 0.2s, linear);
+  @include box-sizing(content-box);
+  @include border-radius(3px);
+  @include box-shadow-inset(0px, 1px, 4px, 0px, rgba(226, 147, 136, 0.4), inset);
+
+}
+// add style for placeholder
+::-webkit-input-placeholder {font-style: italic;}
+::-moz-placeholder          {font-style: italic;}/* Firefox 19+ */
+:-moz-placeholder           {font-style: italic;}/* Firefox 18- */
+:-ms-input-placeholder      {font-style: italic;}
+
